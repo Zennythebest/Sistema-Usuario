@@ -1,0 +1,91 @@
+<div class="min-h-screen bg-gray-50 px-4 py-10">
+  <div class="mx-auto max-w-lg">
+
+    <h1 class="mb-6 text-2xl font-bold">
+      Editar Usuário
+    </h1>
+
+    <form [formGroup]="form" class="space-y-4 rounded bg-white p-6 shadow">
+
+      <div>
+        <label>ID</label>
+        <input
+          type="text"
+          [value]="usuario.id"
+          readonly
+          class="w-full rounded border px-3 py-2 bg-gray-100">
+      </div>
+
+      <div>
+        <label>Nome</label>
+        <input
+          type="text"
+          formControlName="nome"
+          class="w-full rounded border px-3 py-2">
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full rounded border px-3 py-2">
+      </div>
+
+      <div>
+        <label>Senha</label>
+        <input
+          type="password"
+          formControlName="senha"
+          class="w-full rounded border px-3 py-2">
+      </div>
+
+      <div>
+        <label>Data de nascimento</label>
+        <input
+          type="date"
+          formControlName="dataNascimento"
+          class="w-full rounded border px-3 py-2">
+      </div>
+
+      <div>
+        <label>RG</label>
+        <input
+          type="text"
+          formControlName="rg"
+          class="w-full rounded border px-3 py-2">
+      </div>
+
+      <div>
+        <label>CPF</label>
+        <input
+          type="text"
+          formControlName="cpf"
+          class="w-full rounded border px-3 py-2">
+      </div>
+
+      <div class="flex justify-end gap-3">
+
+        <button
+          type="button"
+          (click)="voltar()"
+          class="rounded bg-gray-500 px-4 py-2 text-white">
+          Voltar
+        </button>
+
+        <button
+          type="button"
+          (click)="salvar()"
+          [disabled]="form.invalid || salvando"
+          class="rounded bg-blue-600 px-4 py-2 text-white">
+
+          {{ salvando ? 'Salvando...' : 'Salvar' }}
+
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
